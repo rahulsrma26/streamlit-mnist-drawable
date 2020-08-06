@@ -1,5 +1,18 @@
-Streamlit MNIST demo (drawable)
-===============================
+# Streamlit MNIST demo (drawable)
 
 A simple digit recognition demo using [keras](https://www.tensorflow.org/overview) and [streamlit](https://www.streamlit.io/).
+
+## Files
+
+* train.ipynb
+
+  Jupitor notebook for training the model
+
+* app.py
+
+  Streamlit example for running the app.
+
+  ```
+  streamlit run app.py
+  ```
 

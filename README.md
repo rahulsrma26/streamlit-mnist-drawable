@@ -2,17 +2,29 @@
 
 A simple digit recognition demo using [keras](https://www.tensorflow.org/overview) and [streamlit](https://www.streamlit.io/).
 
-## Files
+![demo](img/demo.gif)
 
-* train.ipynb
+## Running demo
 
-  Jupitor notebook for training the model
+1. First install all the dependencies
 
-* app.py
+    ```
+    pip install -r requirements.txt
+    ```
 
-  Streamlit example for running the app.
+2. Train model
 
-  ```
-  streamlit run app.py
-  ```
+    Run all the cells of [train.ipynb](train.ipynb) manually or run it using runipy.
+
+    ```
+    runipy train.ipynb
+    ```
+
+3. Run demo web-app
+
+    Demo your model by running [app.py](app.py)
+
+    ```
+    streamlit run app.py
+    ```
 

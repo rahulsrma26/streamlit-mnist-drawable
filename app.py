@@ -22,11 +22,21 @@ Try to write a digit!
 
 SIZE = 192
 mode = st.checkbox("Draw (or Delete)?", True)
-data = st_canvas(20, '#FFFFFF', '#000000', width=SIZE, height=SIZE, drawing_mode=mode, key='canvas')
-img = cv2.resize(data.astype('uint8'), (28, 28))
-rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
-st.write('Model Input')
-st.image(rescaled)
+canvas_result = st_canvas(
+    fill_color='#000000',
+    stroke_width=20,
+    stroke_color='#FFFFFF',
+    background_color='#000000',
+    width=SIZE,
+    height=SIZE,
+    drawing_mode="freedraw" if mode else "transform",
+    key='canvas')
+
+if canvas_result.image_data is not None:
+    img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
+    rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
+    st.write('Model Input')
+    st.image(rescaled)
 
 if st.button('Predict'):
     test_x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
